@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "StageViewController.h"
+#import "DBCamera-Swift.h"
 
 @implementation AppDelegate
 
@@ -16,7 +18,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [self.window setBackgroundColor:[UIColor whiteColor]];
-    [self.window setRootViewController:[[UINavigationController alloc] initWithRootViewController:[[RootViewController alloc] init]]];
+    UIViewController *root = [[GSViewController alloc] init];
+    [self.window setRootViewController:root];
     [self.window makeKeyAndVisible];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logWarning)

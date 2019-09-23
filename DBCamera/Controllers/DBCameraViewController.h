@@ -87,4 +87,6 @@
  *  @return A DBCameraViewController
  */
 - (instancetype) initWithDelegate:(id<DBCameraViewControllerDelegate>)delegate cameraView:(id)camera;
+
+- (DBCameraView *) cameraView;
 @end

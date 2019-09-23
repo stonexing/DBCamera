@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0083A5152338B56E0057F034 /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0083A5142338B56E0057F034 /* GSViewController.swift */; };
+		00DED9ED2338A3D700AE90A3 /* StageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DED9EC2338A3D700AE90A3 /* StageViewController.m */; };
 		189DC46C1A4DD02A005F686B /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189DC46B1A4DD02A005F686B /* GrayscaleContrastFilter.m */; };
 		189DC46E1A4DD1FD005F686B /* Vignette.acv in Resources */ = {isa = PBXBuildFile; fileRef = 189DC46D1A4DD1FD005F686B /* Vignette.acv */; };
 		1AC0BF081B5721A500A73CEC /* UIImage+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0BF071B5721A500A73CEC /* UIImage+Bundle.m */; };
@@ -59,6 +61,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0083A5132338B56E0057F034 /* DBCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DBCamera-Bridging-Header.h"; sourceTree = "<group>"; };
+		0083A5142338B56E0057F034 /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
+		00DED9EB2338A3D700AE90A3 /* StageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageViewController.h; sourceTree = "<group>"; };
+		00DED9EC2338A3D700AE90A3 /* StageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageViewController.m; sourceTree = "<group>"; };
 		1809A13E1A3F79560089855F /* sv-SE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sv-SE"; path = "sv-SE.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		189DC46A1A4DD02A005F686B /* GrayscaleContrastFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayscaleContrastFilter.h; sourceTree = "<group>"; };
 		189DC46B1A4DD02A005F686B /* GrayscaleContrastFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayscaleContrastFilter.m; sourceTree = "<group>"; };
@@ -172,6 +178,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0083A5162338C2F70057F034 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		133A9F66B295E54D6A03396E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +255,10 @@
 		9A1F4A5E191C20CB0084C305 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0083A5162338C2F70057F034 /* xib */,
+				00DED9EB2338A3D700AE90A3 /* StageViewController.h */,
+				00DED9EC2338A3D700AE90A3 /* StageViewController.m */,
+				0083A5142338B56E0057F034 /* GSViewController.swift */,
 				9A1F4A5F191C20CB0084C305 /* DBCameraBaseCropViewController.h */,
 				9A1F4A60191C20CB0084C305 /* DBCameraBaseCropViewController.m */,
 				9A1F4A61191C20CB0084C305 /* DBCameraCollectionViewController.h */,
@@ -254,6 +271,7 @@
 				9A1F4A68191C20CB0084C305 /* DBCameraSegueViewController.m */,
 				9A1F4A69191C20CB0084C305 /* DBCameraViewController.h */,
 				9A1F4A6A191C20CB0084C305 /* DBCameraViewController.m */,
+				0083A5132338B56E0057F034 /* DBCamera-Bridging-Header.h */,
 			);
 			name = Controllers;
 			path = ../../DBCamera/Controllers;
@@ -443,7 +461,8 @@
 				ORGANIZATIONNAME = "PSSD - Daniele Bogo";
 				TargetAttributes = {
 					9AB5979F189BAF9A001BCAD3 = {
-						DevelopmentTeam = 5H24V53G7B;
+						DevelopmentTeam = 7JLDCB94LG;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -452,6 +471,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				it,
 				es,
@@ -502,7 +522,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DBCamera/Pods-DBCamera-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DBCamera/Pods-DBCamera-resources.sh",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
@@ -521,7 +541,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DBCamera/Pods-DBCamera-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DBCamera/Pods-DBCamera-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3B4A9F88E4599BAF78EC1E54 /* [CP] Check Pods Manifest.lock */ = {
@@ -593,11 +613,13 @@
 				653E218619474DA2001433A5 /* UIViewController+UIViewController_FullScreen.m in Sources */,
 				9A1F4A84191C20CB0084C305 /* DBCameraSegueViewController.m in Sources */,
 				9A1F4A86191C20CB0084C305 /* DBCameraManager.m in Sources */,
+				0083A5152338B56E0057F034 /* GSViewController.swift in Sources */,
 				9AB597B4189BAF9A001BCAD3 /* AppDelegate.m in Sources */,
 				655AA2B01955FA350017C143 /* CustomCamera.m in Sources */,
 				1AC0BF081B5721A500A73CEC /* UIImage+Bundle.m in Sources */,
 				9A1F4A8C191C20CB0084C305 /* DBCameraView.m in Sources */,
 				9A8E9A86192EA6930005CD5D /* UIImage+TintColor.m in Sources */,
+				00DED9ED2338A3D700AE90A3 /* StageViewController.m in Sources */,
 				6548431C1958236B0008F803 /* DBCameraLoadingView.m in Sources */,
 				9A383B181B2A39E700C3ED80 /* DemoNavigationController.m in Sources */,
 				9A1F4A80191C20CB0084C305 /* DBCameraBaseCropViewController.m in Sources */,
@@ -720,15 +742,22 @@
 			baseConfigurationReference = 4CD22A93BC5AAC7ACFAE4C92 /* Pods-DBCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7JLDCB94LG;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DBCamera/DBCamera-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/DBCamera/DBCamera-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golden.DBCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_OBJC_BRIDGING_HEADER = "../DBCamera/Controllers/DBCamera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -738,15 +767,21 @@
 			baseConfigurationReference = F9DFA4FE58E901A1BE1FE253 /* Pods-DBCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7JLDCB94LG;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DBCamera/DBCamera-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/DBCamera/DBCamera-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golden.DBCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_OBJC_BRIDGING_HEADER = "../DBCamera/Controllers/DBCamera-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

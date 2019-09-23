@@ -23,6 +23,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#import <Masonry.h>
+
 #ifndef DBCameraLocalizedStrings
 #define DBCameraLocalizedStrings(key) \
 [[NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"DBCamera" ofType:@"bundle"]] localizedStringForKey:(key) value:@"" table:@"DBCamera"]
@@ -33,6 +35,8 @@
     UIDeviceOrientation _deviceOrientation;
     BOOL wasStatusBarHidden;
     BOOL wasWantsFullScreenLayout;
+    
+    BOOL isSetConstraints;
 }
 
 @property (nonatomic, strong) id customCamera;
@@ -138,6 +142,11 @@
     } else {
         DBCameraView *cameraView = (DBCameraView *)self.customCamera;
         [cameraView updateFrame:self.view.frame];
+    }
+    
+    if (!isSetConstraints){
+        isSetConstraints = YES;
+        [self updateViewConstraints];
     }
 }
 
@@ -469,5 +478,7 @@
     [self switchCamera];
     
 }
+
+
 
 @end

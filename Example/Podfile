@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, "6.0"
+platform :ios, "9.0"
 
 target "DBCamera" do
 pod 'GPUImage', '~> 0.1'
+pod 'Masonry'
 end

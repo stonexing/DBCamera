@@ -11,6 +11,8 @@
 #import "DBCameraMacros.h"
 #import "DBCameraView.h"
 
+#import <Masonry.h>
+
 @interface DBCameraContainerViewController () <DBCameraContainerDelegate> {
     CameraSettingsBlock _settingsBlock;
     BOOL _wasStatusBarHidden;
@@ -62,6 +64,8 @@
     [self.view setBackgroundColor:RGBColor(0x000000, 1)];
     [self addChildViewController:self.defaultCameraViewController];
     [self.view addSubview:self.defaultCameraViewController.view];
+    
+ 
     if ( _settingsBlock )
         _settingsBlock(self.cameraViewController.cameraView, self);
 }
@@ -71,8 +75,9 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
@@ -133,4 +138,7 @@
     _defaultCameraViewController = nil;
 }
 
+- (DBCameraView *)cameraView{
+    return self.cameraViewController.cameraView;
+}
 @end

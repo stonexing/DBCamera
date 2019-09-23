@@ -82,4 +82,7 @@ typedef void(^CameraSettingsBlock)(DBCameraView *cameraView, id container);
 - (instancetype) initWithDelegate:(id<DBCameraViewControllerDelegate>)delegate
               cameraConfiguration:(DBCameraConfiguration *)cameraConfiguration
               cameraSettingsBlock:(CameraSettingsBlock)block;
+
+
+- (DBCameraView *)cameraView;
 @end
