@@ -105,8 +105,15 @@
             }
 
             [self.view addSubview:self.customCamera];
-        } else
+        } else{
             [self.view addSubview:self.cameraView];
+            [self.cameraView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            }];
+        }
     }
 
     id camera =_customCamera ?: _cameraView;

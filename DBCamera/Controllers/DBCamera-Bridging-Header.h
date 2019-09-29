@@ -12,3 +12,7 @@
 #import "DBCameraManager.h"
 #import "DBCameraViewController.h"
 
+#import "DBCameraView.h"
+
+#import <Masonry.h>
+

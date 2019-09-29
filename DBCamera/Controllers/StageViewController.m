@@ -8,6 +8,7 @@
 
 #import "StageViewController.h"
 #import "DBCameraManager.h"
+#import <Masonry.h>
 
 
 @interface StageViewController ()<DBCameraViewControllerDelegate>

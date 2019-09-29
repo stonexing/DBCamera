@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0083A5152338B56E0057F034 /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0083A5142338B56E0057F034 /* GSViewController.swift */; };
+		005EA18323408FC0007C0E5A /* CameraViewConstrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */; };
+		005EA18A234096F9007C0E5A /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA188234096F9007C0E5A /* DBViewController.swift */; };
+		005EA18B234096F9007C0E5A /* DBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005EA189234096F9007C0E5A /* DBViewController.xib */; };
+		005EA18E23409726007C0E5A /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA18C23409726007C0E5A /* GSViewController.swift */; };
+		005EA18F23409726007C0E5A /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005EA18D23409726007C0E5A /* GSViewController.xib */; };
 		00DED9ED2338A3D700AE90A3 /* StageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DED9EC2338A3D700AE90A3 /* StageViewController.m */; };
 		189DC46C1A4DD02A005F686B /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189DC46B1A4DD02A005F686B /* GrayscaleContrastFilter.m */; };
 		189DC46E1A4DD1FD005F686B /* Vignette.acv in Resources */ = {isa = PBXBuildFile; fileRef = 189DC46D1A4DD1FD005F686B /* Vignette.acv */; };
@@ -61,8 +65,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewConstrants.swift; sourceTree = "<group>"; };
+		005EA188234096F9007C0E5A /* DBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBViewController.swift; sourceTree = "<group>"; };
+		005EA189234096F9007C0E5A /* DBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBViewController.xib; sourceTree = "<group>"; };
+		005EA18C23409726007C0E5A /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
+		005EA18D23409726007C0E5A /* GSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSViewController.xib; sourceTree = "<group>"; };
 		0083A5132338B56E0057F034 /* DBCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DBCamera-Bridging-Header.h"; sourceTree = "<group>"; };
-		0083A5142338B56E0057F034 /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
 		00DED9EB2338A3D700AE90A3 /* StageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageViewController.h; sourceTree = "<group>"; };
 		00DED9EC2338A3D700AE90A3 /* StageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageViewController.m; sourceTree = "<group>"; };
 		1809A13E1A3F79560089855F /* sv-SE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sv-SE"; path = "sv-SE.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -258,7 +266,11 @@
 				0083A5162338C2F70057F034 /* xib */,
 				00DED9EB2338A3D700AE90A3 /* StageViewController.h */,
 				00DED9EC2338A3D700AE90A3 /* StageViewController.m */,
-				0083A5142338B56E0057F034 /* GSViewController.swift */,
+				005EA188234096F9007C0E5A /* DBViewController.swift */,
+				005EA189234096F9007C0E5A /* DBViewController.xib */,
+				005EA18C23409726007C0E5A /* GSViewController.swift */,
+				005EA18D23409726007C0E5A /* GSViewController.xib */,
+				005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */,
 				9A1F4A5F191C20CB0084C305 /* DBCameraBaseCropViewController.h */,
 				9A1F4A60191C20CB0084C305 /* DBCameraBaseCropViewController.m */,
 				9A1F4A61191C20CB0084C305 /* DBCameraCollectionViewController.h */,
@@ -507,6 +519,8 @@
 				655AA2CB195602340017C143 /* amaro.acv in Resources */,
 				655AA2CD195602340017C143 /* mayfair.acv in Resources */,
 				655AA2CC195602340017C143 /* Hudson.acv in Resources */,
+				005EA18B234096F9007C0E5A /* DBViewController.xib in Resources */,
+				005EA18F23409726007C0E5A /* GSViewController.xib in Resources */,
 				655AA2CF195602340017C143 /* Valencia.acv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,7 +627,7 @@
 				653E218619474DA2001433A5 /* UIViewController+UIViewController_FullScreen.m in Sources */,
 				9A1F4A84191C20CB0084C305 /* DBCameraSegueViewController.m in Sources */,
 				9A1F4A86191C20CB0084C305 /* DBCameraManager.m in Sources */,
-				0083A5152338B56E0057F034 /* GSViewController.swift in Sources */,
+				005EA18E23409726007C0E5A /* GSViewController.swift in Sources */,
 				9AB597B4189BAF9A001BCAD3 /* AppDelegate.m in Sources */,
 				655AA2B01955FA350017C143 /* CustomCamera.m in Sources */,
 				1AC0BF081B5721A500A73CEC /* UIImage+Bundle.m in Sources */,
@@ -629,10 +643,12 @@
 				9AB597B0189BAF9A001BCAD3 /* main.m in Sources */,
 				9A1F4A8A191C20CB0084C305 /* DBCameraCropView.m in Sources */,
 				6594EE121955F19600E22EBD /* RootViewController.m in Sources */,
+				005EA18A234096F9007C0E5A /* DBViewController.swift in Sources */,
 				9A1F4A81191C20CB0084C305 /* DBCameraCollectionViewController.m in Sources */,
 				9A1F4A85191C20CB0084C305 /* DBCameraViewController.m in Sources */,
 				9A1F4A89191C20CB0084C305 /* DBCollectionViewFlowLayout.m in Sources */,
 				6594EC041955D94E00E22EBD /* DBCameraFiltersView.m in Sources */,
+				005EA18323408FC0007C0E5A /* CameraViewConstrants.swift in Sources */,
 				9A1F4A82191C20CB0084C305 /* DBCameraContainerViewController.m in Sources */,
 				9A71D2ED1958402A00224B82 /* DBCameraFilterCell.m in Sources */,
 			);

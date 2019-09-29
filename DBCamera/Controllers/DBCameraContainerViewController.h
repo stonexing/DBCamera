@@ -37,7 +37,10 @@ typedef void(^CameraSettingsBlock)(DBCameraView *cameraView, id container);
 /**
  *  Contains additional configuration for camera controllers
  */
-@property (nonatomic, strong) DBCameraConfiguration *cameraConfiguration;
+ @property (nonatomic, strong) DBCameraConfiguration *cameraConfiguration;
+
+
+ @property (nonatomic, strong) UIView *safeAeroView;
 
 /**
  *  The init method with a DBCameraViewControllerDelegate
@@ -84,5 +87,6 @@ typedef void(^CameraSettingsBlock)(DBCameraView *cameraView, id container);
               cameraSettingsBlock:(CameraSettingsBlock)block;
 
 
-- (DBCameraView *)cameraView;
+
+- (DBCameraView *)getCameraView;
 @end

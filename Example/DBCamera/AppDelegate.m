@@ -18,7 +18,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [self.window setBackgroundColor:[UIColor whiteColor]];
-    UIViewController *root = [[GSViewController alloc] init];
+    UIViewController *root = [[GSViewController alloc] initWithNibName:@"GSViewController" bundle:nil];
     [self.window setRootViewController:root];
     [self.window makeKeyAndVisible];
     

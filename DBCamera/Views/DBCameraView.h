@@ -41,6 +41,11 @@
 @property (nonatomic, strong) UIView *bottomContainerBar;
 
 /**
+ * Bottom bar containing the close button, the trigger button and the library button.
+ */
+@property (nonatomic, strong) UIView *preview;
+
+/**
  *  The button to open the Library
  */
 @property (nonatomic, strong) UIButton *photoLibraryButton;
