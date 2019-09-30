@@ -11,6 +11,8 @@
 
 #import "DBCameraDelegate.h"
 
+
+
 /**
  *  The view class that contains the UI of the camera. Extend this class if you want to create a custom camera view.
  */
@@ -43,7 +45,8 @@
 /**
  * Bottom bar containing the close button, the trigger button and the library button.
  */
-@property (nonatomic, strong) UIView *preview;
+ @property (nonatomic, strong) UIView *preViewContainer;
+ @property (nonatomic, strong) UIView *preView;
 
 /**
  *  The button to open the Library
@@ -161,4 +164,6 @@
  *  @param frame New frame
  */
 - (void) updateFrame:(CGRect)frame;
+
+- (void) updateForOriention:(CGAffineTransform)trans;
 @end

@@ -148,7 +148,7 @@
         [self checkForLibraryImage];
     } else {
         DBCameraView *cameraView = (DBCameraView *)self.customCamera;
-        [cameraView updateFrame:self.view.frame];
+        
     }
     
     if (!isSetConstraints){
@@ -170,7 +170,8 @@
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+    //return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
@@ -258,8 +259,23 @@
     if ( orientation != UIDeviceOrientationUnknown ||
          orientation != UIDeviceOrientationFaceUp ||
          orientation != UIDeviceOrientationFaceDown ) {
+        [self rotateViewsFrom:_deviceOrientation to:orientation];
         _deviceOrientation = orientation;
     }
+}
+
+- (void)rotateViewsFrom:(UIDeviceOrientation)old to:(UIDeviceOrientation)new{
+    CGAffineTransform trans = CGAffineTransformIdentity;
+    if(new == UIDeviceOrientationLandscapeLeft){
+        trans = CGAffineTransformMakeRotation( M_PI_2 );
+    }else if(new == UIDeviceOrientationLandscapeRight){
+        trans = CGAffineTransformMakeRotation( -M_PI_2 );
+    }else if(new == UIDeviceOrientationPortraitUpsideDown){
+        trans = CGAffineTransformMakeRotation(  M_PI );
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.cameraView updateForOriention:trans];
+    }];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
@@ -486,6 +502,8 @@
     
 }
 
-
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(id<UIContentContainer>)container{
+    NSLog(@"尺寸变化");
+}
 
 @end

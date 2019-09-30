@@ -62,10 +62,9 @@
     [super viewDidLoad];
     
     [self.view setBackgroundColor:RGBColor(0x000000, 1)];
-    self.safeAeroView = [[UIView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_safeAeroView];
+    
     [self addChildViewController:self.defaultCameraViewController];
-    [self.safeAeroView addSubview:self.defaultCameraViewController.view];
+    [self.view addSubview:self.defaultCameraViewController.view];
     if ( _settingsBlock )
         _settingsBlock(self.cameraViewController.cameraView, self);
     
@@ -144,4 +143,10 @@
 - (DBCameraView *)getCameraView{
     return self.cameraViewController.cameraView;
 }
+
+- (void)updateViewConstraints{
+    [super updateViewConstraints];
+}
+
+
 @end

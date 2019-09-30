@@ -54,7 +54,7 @@
 
         [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 
-        [self.layer addSublayer:_previewLayer];
+        [self.preViewContainer.layer addSublayer:_previewLayer];
 
         self.tintColor = [UIColor whiteColor];
         self.selectedTintColor = [UIColor redColor];
@@ -79,14 +79,14 @@
     UIView *focusView = [[UIView alloc] initWithFrame:self.frame];
     focusView.backgroundColor = [UIColor clearColor];
     [focusView.layer addSublayer:self.focusBox];
-    [self addSubview:focusView];
+    [self.preViewContainer addSubview:focusView];
 
     UIView *exposeView = [[UIView alloc] initWithFrame:self.frame];
     exposeView.backgroundColor = [UIColor clearColor];
     [exposeView.layer addSublayer:self.exposeBox];
-    [self addSubview:exposeView];
+    [self.preViewContainer addSubview:exposeView];
 
-    [self addSubview:self.preview];
+    [self addSubview:self.preViewContainer];
     [self addSubview:self.topContainerBar];
     [self addSubview:self.bottomContainerBar];
 
@@ -105,11 +105,18 @@
 
 #pragma mark - Containers
 
-- (UIView *) preview{
-    if (!_preview) {
-        _preview = [[UIView alloc] init];
+- (UIView *) preViewContainer{
+    if (!_preViewContainer) {
+        _preViewContainer = [[UIView alloc] init];
+        _preViewContainer.userInteractionEnabled = NO;
     }
-    return _preview;
+    return _preViewContainer;
+}
+- (UIView *) preView{
+    if (!_preView) {
+        _preView = [[UIView alloc] init];
+    }
+    return _preView;
 }
 
 - (UIView *) topContainerBar
@@ -117,7 +124,7 @@
     if ( !_topContainerBar ) {
         _topContainerBar = [[UIView alloc] init];
         [_topContainerBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-        [_topContainerBar setBackgroundColor:RGBColor(0x000000, 1)];
+        [_topContainerBar setBackgroundColor:RGBColor(0x000000, 0.5)];
     }
     return _topContainerBar;
 }
@@ -129,7 +136,7 @@
         _bottomContainerBar = [[UIView alloc] init];
         [_bottomContainerBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
         [_bottomContainerBar setUserInteractionEnabled:YES];
-        [_bottomContainerBar setBackgroundColor:RGBColor(0x000000, 1)];
+        [_bottomContainerBar setBackgroundColor:RGBColor(0x000000, 0.5)];
     }
     return _bottomContainerBar;
 }
@@ -368,7 +375,7 @@
 
 - (void) tapToFocus:(UIGestureRecognizer *)recognizer
 {
-    CGPoint tempPoint = (CGPoint)[recognizer locationInView:self];
+    CGPoint tempPoint = (CGPoint)[recognizer locationInView:self.preViewContainer];
     if ( [_delegate respondsToSelector:@selector(cameraView:focusAtPoint:)] && CGRectContainsPoint(_previewLayer.frame, tempPoint) ){
         [_delegate cameraView:self focusAtPoint:(CGPoint){ tempPoint.x, tempPoint.y - CGRectGetMinY(_previewLayer.frame) }];
         [self drawFocusBoxAtPointOfInterest:tempPoint andRemove:YES];
@@ -377,7 +384,7 @@
 
 - (void) tapToExpose:(UIGestureRecognizer *)recognizer
 {
-    CGPoint tempPoint = (CGPoint)[recognizer locationInView:self];
+    CGPoint tempPoint = (CGPoint)[recognizer locationInView:self.preViewContainer];
     if ( [_delegate respondsToSelector:@selector(cameraView:exposeAtPoint:)] && CGRectContainsPoint(_previewLayer.frame, tempPoint) ){
         [_delegate cameraView:self exposeAtPoint:(CGPoint){ tempPoint.x, tempPoint.y - CGRectGetMinY(_previewLayer.frame) }];
         [self drawExposeBoxAtPointOfInterest:tempPoint andRemove:YES];
@@ -475,10 +482,21 @@
     }
 }
 
-- (void) updateFrame:(CGRect)frame {
-    
-    self.frame = frame;
-    self.previewLayer.frame = frame;
-    
+
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    _previewLayer.frame = self.preViewContainer.layer.bounds;
 }
+
+
+- (void) updateForOriention:(CGAffineTransform)trans{
+    self.gridButton.transform = trans;
+    self.closeButton.transform = trans;
+    self.flashButton.transform = trans;
+    self.cameraButton.transform = trans;
+    self.triggerButton.transform = trans;
+    self.photoLibraryButton.transform = trans;
+}
+
 @end

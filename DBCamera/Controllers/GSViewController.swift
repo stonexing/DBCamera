@@ -2,7 +2,7 @@
 //  GSViewController.swift
 //  DBCamera
 //
-//  Created by a on 2019/9/23.
+//  Created by a on 2019/9/29.
 //  Copyright © 2019 PSSD - Daniele Bogo. All rights reserved.
 //
 
@@ -30,15 +30,11 @@ class GSViewController: DBCameraContainerViewController, DBCameraViewControllerD
     private var isUpdateViewConstaints = false;
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if(isUpdateViewConstaints){
+        if(!isUpdateViewConstaints){
             self.updateViewConstraints()
             isUpdateViewConstaints = true
         }
     }
     
-    override func updateViewConstraints() {
-        //let cameraView = super.cameraView()
-        //self.cameraView()
-        self.cameraViewController.cameraGridView
-    }
+
 }

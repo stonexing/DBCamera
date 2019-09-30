@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002BF7EB2341C6C800C772C0 /* CameraViewOriention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002BF7EA2341C6C800C772C0 /* CameraViewOriention.swift */; };
 		005EA18323408FC0007C0E5A /* CameraViewConstrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */; };
 		005EA18A234096F9007C0E5A /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA188234096F9007C0E5A /* DBViewController.swift */; };
 		005EA18B234096F9007C0E5A /* DBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005EA189234096F9007C0E5A /* DBViewController.xib */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002BF7EA2341C6C800C772C0 /* CameraViewOriention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewOriention.swift; sourceTree = "<group>"; };
 		005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewConstrants.swift; sourceTree = "<group>"; };
 		005EA188234096F9007C0E5A /* DBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBViewController.swift; sourceTree = "<group>"; };
 		005EA189234096F9007C0E5A /* DBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBViewController.xib; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				005EA18C23409726007C0E5A /* GSViewController.swift */,
 				005EA18D23409726007C0E5A /* GSViewController.xib */,
 				005EA18223408FC0007C0E5A /* CameraViewConstrants.swift */,
+				002BF7EA2341C6C800C772C0 /* CameraViewOriention.swift */,
 				9A1F4A5F191C20CB0084C305 /* DBCameraBaseCropViewController.h */,
 				9A1F4A60191C20CB0084C305 /* DBCameraBaseCropViewController.m */,
 				9A1F4A61191C20CB0084C305 /* DBCameraCollectionViewController.h */,
@@ -651,6 +654,7 @@
 				005EA18323408FC0007C0E5A /* CameraViewConstrants.swift in Sources */,
 				9A1F4A82191C20CB0084C305 /* DBCameraContainerViewController.m in Sources */,
 				9A71D2ED1958402A00224B82 /* DBCameraFilterCell.m in Sources */,
+				002BF7EB2341C6C800C772C0 /* CameraViewOriention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
