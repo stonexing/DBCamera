@@ -59,8 +59,10 @@
         self.tintColor = [UIColor whiteColor];
         self.selectedTintColor = [UIColor redColor];
         
+        [self.preViewContainer setBackgroundColor:[UIColor redColor]];
 #if TARGET_IPHONE_SIMULATOR
         // Mock image for simulator
+        
         UIImage *launchImage = [UIImage imageNamed:@"LaunchImage-700"] ?: [UIImage imageNamed:@"Default"];
         UIImageView *launchImageView = [[UIImageView alloc] initWithImage:launchImage];
         launchImageView.contentMode = UIViewContentModeScaleAspectFill;

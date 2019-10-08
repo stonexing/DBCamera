@@ -43,10 +43,14 @@ extension DBCameraView {
         }
 //        self.preViewContainer.backgroundColor = .red
         self.preViewContainer.mas_makeConstraints{ make in
-            make?.top.equalTo()(vc.view.mas_safeAreaLayoutGuideTop)
-            make?.bottom.equalTo()(vc.view.mas_safeAreaLayoutGuideBottom)
-            make?.left.equalTo()(vc.view.mas_safeAreaLayoutGuideLeft)
-            make?.right.equalTo()(vc.view.mas_safeAreaLayoutGuideRight)
+            if #available(iOS 11.0, *) {
+                make?.top.equalTo()(vc.view.mas_safeAreaLayoutGuideTop)
+                make?.bottom.equalTo()(vc.view.mas_safeAreaLayoutGuideBottom)
+                make?.left.equalTo()(vc.view.mas_safeAreaLayoutGuideLeft)
+                make?.right.equalTo()(vc.view.mas_safeAreaLayoutGuideRight)
+            } else {
+                make?.edges.equalTo()(vc.view)
+            }
         }
         //仅支持竖屏
         if(UIDevice.current.userInterfaceIdiom == .phone){
@@ -58,12 +62,18 @@ extension DBCameraView {
     func phoneConstants(_ v:UIView){
         self.topContainerBar.mas_makeConstraints{ make in
             make?.top.equalTo()(v.mas_top)
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideTop)?.offset()(65)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
+            if #available(iOS 11.0, *) {
+                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideTop)?.offset()(44)
+                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
+                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
+            } else {
+                make?.bottom.equalTo()(v.mas_top)?.offset()(44)
+                make?.left.equalTo()(v.mas_left)
+                make?.right.equalTo()(v.mas_right)
+            }
         }
         self.cameraButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
+            make?.bottom.equalTo()(topContainerBar.mas_bottom)
             make?.left.equalTo()(topContainerBar.mas_left)?.offset()(20)
             make?.height.and()?.width().equalTo()(44)
         }
@@ -82,48 +92,65 @@ extension DBCameraView {
         
         self.bottomContainerBar.mas_makeConstraints{ make in
             make?.bottom.equalTo()(v.mas_bottom)
-            make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-65 - 50)
+            if #available(iOS 11.0, *) {
+                make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-65 - 50)
+            } else {
+                make?.top.equalTo()(v.mas_bottom)?.offset()(-65 - 50)
+            }
             
             make?.left.equalTo()(v.mas_left)
             make?.right.equalTo()(v.mas_right)
         }
         
-        self.photoLibraryButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-11)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)?.offset()(20)
-            make?.height.and()?.width().equalTo()(44)
-        }
         self.triggerButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-1)
+            if #available(iOS 11.0, *) {
+                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-10)
+            } else {
+                make?.bottom.equalTo()(v.mas_bottom)?.offset()(-10)
+            }
             make?.centerX.equalTo()(v)
             make?.height.equalTo()(66)
             make?.width.equalTo()(66)
         }
         
+        self.photoLibraryButton.mas_makeConstraints{ make in
+            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
+            if #available(iOS 11.0, *) {
+                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)?.offset()(20)
+            } else {
+                make?.left.equalTo()(v.mas_left)?.offset()(20)
+            }
+            make?.height.and()?.width().equalTo()(44)
+        }
+        
         self.closeButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-11)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)?.offset()(-20)
+            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
+            if #available(iOS 11.0, *) {
+                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)?.offset()(-20)
+            } else {
+                make?.right.equalTo()(v.mas_right)?.offset()(-20)
+            }
             make?.height.equalTo()(44)
             make?.width.equalTo()(44)
         }
         
-        self.preViewContainer.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
-            make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)
-        }
     }
     
     func padConstants(_ v:UIView){
         self.topContainerBar.mas_makeConstraints{ make in
             make?.top.equalTo()(v.mas_top)
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideTop)?.offset()(65)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
+            if #available(iOS 11.0, *) {
+                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideTop)?.offset()(44)
+                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
+                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
+            } else {
+                make?.bottom.equalTo()(v.mas_top)?.offset()(44)
+                make?.left.equalTo()(v.mas_left)
+                make?.right.equalTo()(v.mas_right)
+            }
         }
         self.cameraButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
+            make?.bottom.equalTo()(topContainerBar.mas_bottom)
             make?.left.equalTo()(topContainerBar.mas_left)?.offset()(20)
             make?.height.and()?.width().equalTo()(44)
         }
@@ -142,36 +169,47 @@ extension DBCameraView {
         
         self.bottomContainerBar.mas_makeConstraints{ make in
             make?.bottom.equalTo()(v.mas_bottom)
-            make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-65)
+            if #available(iOS 11.0, *) {
+                make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-65 - 50)
+            } else {
+                make?.top.equalTo()(v.mas_bottom)?.offset()(-65 - 50)
+            }
             
             make?.left.equalTo()(v.mas_left)
             make?.right.equalTo()(v.mas_right)
         }
         
-        self.photoLibraryButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-11)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)?.offset()(20)
-            make?.height.and()?.width().equalTo()(44)
-        }
         self.triggerButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-1)
+            if #available(iOS 11.0, *) {
+                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-10)
+            } else {
+                make?.bottom.equalTo()(v.mas_bottom)?.offset()(-10)
+            }
             make?.centerX.equalTo()(v)
             make?.height.equalTo()(66)
             make?.width.equalTo()(66)
         }
         
+        self.photoLibraryButton.mas_makeConstraints{ make in
+            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
+            if #available(iOS 11.0, *) {
+                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)?.offset()(20)
+            } else {
+                make?.left.equalTo()(v.mas_left)?.offset()(20)
+            }
+            make?.height.and()?.width().equalTo()(44)
+        }
+        
         self.closeButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-11)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)?.offset()(-20)
+            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
+            if #available(iOS 11.0, *) {
+                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)?.offset()(-20)
+            } else {
+                make?.right.equalTo()(v.mas_right)?.offset()(-20)
+            }
             make?.height.equalTo()(44)
             make?.width.equalTo()(44)
         }
         
-        self.preViewContainer.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)
-            make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
-            make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
-            make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)
-        }
     }
 }

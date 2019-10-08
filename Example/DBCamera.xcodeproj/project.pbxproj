@@ -13,6 +13,7 @@
 		005EA18B234096F9007C0E5A /* DBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005EA189234096F9007C0E5A /* DBViewController.xib */; };
 		005EA18E23409726007C0E5A /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EA18C23409726007C0E5A /* GSViewController.swift */; };
 		005EA18F23409726007C0E5A /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005EA18D23409726007C0E5A /* GSViewController.xib */; };
+		0066494C234C82D900458646 /* DBCameraMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066494B234C82D900458646 /* DBCameraMode.m */; };
 		00DED9ED2338A3D700AE90A3 /* StageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DED9EC2338A3D700AE90A3 /* StageViewController.m */; };
 		189DC46C1A4DD02A005F686B /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189DC46B1A4DD02A005F686B /* GrayscaleContrastFilter.m */; };
 		189DC46E1A4DD1FD005F686B /* Vignette.acv in Resources */ = {isa = PBXBuildFile; fileRef = 189DC46D1A4DD1FD005F686B /* Vignette.acv */; };
@@ -72,6 +73,8 @@
 		005EA189234096F9007C0E5A /* DBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBViewController.xib; sourceTree = "<group>"; };
 		005EA18C23409726007C0E5A /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
 		005EA18D23409726007C0E5A /* GSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSViewController.xib; sourceTree = "<group>"; };
+		0066494A234C82D900458646 /* DBCameraMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBCameraMode.h; sourceTree = "<group>"; };
+		0066494B234C82D900458646 /* DBCameraMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBCameraMode.m; sourceTree = "<group>"; };
 		0083A5132338B56E0057F034 /* DBCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DBCamera-Bridging-Header.h"; sourceTree = "<group>"; };
 		00DED9EB2338A3D700AE90A3 /* StageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageViewController.h; sourceTree = "<group>"; };
 		00DED9EC2338A3D700AE90A3 /* StageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageViewController.m; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				ABB9D8EE1DAA718D00B64899 /* DBCameraConfiguration.m */,
 				ABB9D8F01DAA720500B64899 /* DBPhotoProcessingControllerProtocol.h */,
 				ABB9D8F21DAA8C5200B64899 /* DBCameraControllerProtocol.h */,
+				0066494A234C82D900458646 /* DBCameraMode.h */,
+				0066494B234C82D900458646 /* DBCameraMode.m */,
 			);
 			name = Objects;
 			path = ../../DBCamera/Objects;
@@ -653,6 +658,7 @@
 				6594EC041955D94E00E22EBD /* DBCameraFiltersView.m in Sources */,
 				005EA18323408FC0007C0E5A /* CameraViewConstrants.swift in Sources */,
 				9A1F4A82191C20CB0084C305 /* DBCameraContainerViewController.m in Sources */,
+				0066494C234C82D900458646 /* DBCameraMode.m in Sources */,
 				9A71D2ED1958402A00224B82 /* DBCameraFilterCell.m in Sources */,
 				002BF7EB2341C6C800C772C0 /* CameraViewOriention.swift in Sources */,
 			);
@@ -769,7 +775,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DBCamera/DBCamera-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/DBCamera/DBCamera-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golden.DBCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,7 +800,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DBCamera/DBCamera-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/DBCamera/DBCamera-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golden.DBCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
