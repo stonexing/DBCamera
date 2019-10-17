@@ -17,6 +17,13 @@ typedef NS_ENUM(NSUInteger, DBCameraMode){
     DBCameraModeScanQRCode,
 };
 
+typedef NS_OPTIONS(NSUInteger, DBCameraAsptoSupportedMode) {
+    DBCameraAsptoSupportedModeFull = 1 << 0,
+    DBCameraAsptoSupportedMode9x16 = 1 << 1,
+    DBCameraAsptoSupportedMode3x4 = 1 << 2,
+    DBCameraAsptoSupportedMode1x1 = 1 << 3,
+    DBCameraAsptoSupportedModeCircle = 1 << 4,
+};
 typedef NS_ENUM(NSUInteger, DBCameraAsptoMode) { //默认以最大分辨率处理照片
     DBCameraAsptoModeFull,
     DBCameraAsptoMode9x16,
@@ -25,6 +32,7 @@ typedef NS_ENUM(NSUInteger, DBCameraAsptoMode) { //默认以最大分辨率处�
     DBCameraAsptoModeCircle,
 };
 
+//若支持HECI 则优先
 typedef NS_ENUM(NSUInteger, DBCameraPhotoSavingType) {
     DBCameraPhotoSavingTypeJPEG,
     DBCameraPhotoSavingTypeHEIC,
