@@ -71,7 +71,7 @@
 /**
  *  The button to switch the camera
  */
-@property (nonatomic, strong) UIButton *cameraButton;
+@property (nonatomic, strong) UIButton *cameraChangeButton;
 
 /**
  *  The button to open/close the flash mode

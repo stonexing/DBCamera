@@ -72,22 +72,21 @@ extension DBCameraView {
                 make?.right.equalTo()(v.mas_right)
             }
         }
-        self.cameraButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)
-            make?.left.equalTo()(topContainerBar.mas_left)?.offset()(20)
+        self.cameraChangeButton.mas_makeConstraints{ make in
+            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()
+            make?.right.equalTo()(topContainerBar.mas_right)?.offset()(-20)
             make?.height.and()?.width().equalTo()(44)
         }
         
         self.gridButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
+            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()
             make?.centerX.equalTo()(topContainerBar.mas_centerX)
             make?.height.and()?.width().equalTo()(44)
         }
         
-        self.flashButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
-            make?.right.equalTo()(topContainerBar.mas_right)?.offset()(-20)
-            make?.height.and()?.width().equalTo()(44)
+        self.flashButton.mas_makeConstraints{ make in  make?.bottom.equalTo()(topContainerBar.mas_bottom)
+                   make?.left.equalTo()(topContainerBar.mas_left)?.offset()(20)
+                   make?.height.and()?.width().equalTo()(44)
         }
         
         self.bottomContainerBar.mas_makeConstraints{ make in
@@ -103,11 +102,7 @@ extension DBCameraView {
         }
         
         self.triggerButton.mas_makeConstraints{ make in
-            if #available(iOS 11.0, *) {
-                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-10)
-            } else {
-                make?.bottom.equalTo()(v.mas_bottom)?.offset()(-10)
-            }
+            make?.centerY.equalTo()(self.bottomContainerBar.mas_centerY)
             make?.centerX.equalTo()(v)
             make?.height.equalTo()(66)
             make?.width.equalTo()(66)
@@ -137,79 +132,6 @@ extension DBCameraView {
     }
     
     func padConstants(_ v:UIView){
-        self.topContainerBar.mas_makeConstraints{ make in
-            make?.top.equalTo()(v.mas_top)
-            if #available(iOS 11.0, *) {
-                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideTop)?.offset()(44)
-                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)
-                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)
-            } else {
-                make?.bottom.equalTo()(v.mas_top)?.offset()(44)
-                make?.left.equalTo()(v.mas_left)
-                make?.right.equalTo()(v.mas_right)
-            }
-        }
-        self.cameraButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)
-            make?.left.equalTo()(topContainerBar.mas_left)?.offset()(20)
-            make?.height.and()?.width().equalTo()(44)
-        }
-        
-        self.gridButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
-            make?.centerX.equalTo()(topContainerBar.mas_centerX)
-            make?.height.and()?.width().equalTo()(44)
-        }
-        
-        self.flashButton.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(topContainerBar.mas_bottom)?.offset()(-10)
-            make?.right.equalTo()(topContainerBar.mas_right)?.offset()(-20)
-            make?.height.and()?.width().equalTo()(44)
-        }
-        
-        self.bottomContainerBar.mas_makeConstraints{ make in
-            make?.bottom.equalTo()(v.mas_bottom)
-            if #available(iOS 11.0, *) {
-                make?.top.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-65 - 50)
-            } else {
-                make?.top.equalTo()(v.mas_bottom)?.offset()(-65 - 50)
-            }
-            
-            make?.left.equalTo()(v.mas_left)
-            make?.right.equalTo()(v.mas_right)
-        }
-        
-        self.triggerButton.mas_makeConstraints{ make in
-            if #available(iOS 11.0, *) {
-                make?.bottom.equalTo()(v.mas_safeAreaLayoutGuideBottom)?.offset()(-10)
-            } else {
-                make?.bottom.equalTo()(v.mas_bottom)?.offset()(-10)
-            }
-            make?.centerX.equalTo()(v)
-            make?.height.equalTo()(66)
-            make?.width.equalTo()(66)
-        }
-        
-        self.photoLibraryButton.mas_makeConstraints{ make in
-            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
-            if #available(iOS 11.0, *) {
-                make?.left.equalTo()(v.mas_safeAreaLayoutGuideLeft)?.offset()(20)
-            } else {
-                make?.left.equalTo()(v.mas_left)?.offset()(20)
-            }
-            make?.height.and()?.width().equalTo()(44)
-        }
-        
-        self.closeButton.mas_makeConstraints{ make in
-            make?.centerY.equalTo()(self.triggerButton.mas_centerY)
-            if #available(iOS 11.0, *) {
-                make?.right.equalTo()(v.mas_safeAreaLayoutGuideRight)?.offset()(-20)
-            } else {
-                make?.right.equalTo()(v.mas_right)?.offset()(-20)
-            }
-            make?.height.equalTo()(44)
-            make?.width.equalTo()(44)
-        }
         
     }
 }

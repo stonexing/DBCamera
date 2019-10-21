@@ -128,19 +128,6 @@
 - (void) switchFromController:(id)fromController toController:(id)controller;
 @end
 
-/**
- *  DBCameraColletcionController delegate protocol
- */
-@protocol DBCameraCollectionControllerDelegate <NSObject>
-
-/**
- *  Tells the delegate the selected NSURL of the Asset
- *
- *  @param collectionView The collection view
- *  @param URL            The NSURL of the Asset
- */
-- (void) collectionView:(UICollectionView *)collectionView itemURL:(NSURL *)URL;
-@end
 
 /**
  *  DBCameraCrop protocol

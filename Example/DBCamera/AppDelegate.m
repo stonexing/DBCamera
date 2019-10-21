@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
-#import "StageViewController.h"
+#import <UIKit/UIKit.h>
 #import "DBCamera-Swift.h"
 
 @implementation AppDelegate

@@ -92,7 +92,7 @@
     [self addSubview:self.topContainerBar];
     [self addSubview:self.bottomContainerBar];
 
-    [self.topContainerBar addSubview:self.cameraButton];
+    [self.topContainerBar addSubview:self.cameraChangeButton];
     [self.topContainerBar addSubview:self.flashButton];
     [self.topContainerBar addSubview:self.gridButton];
 
@@ -188,17 +188,17 @@
     return _closeButton;
 }
 
-- (UIButton *) cameraButton
+- (UIButton *) cameraChangeButton
 {
-    if ( !_cameraButton ) {
-        _cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_cameraButton setBackgroundColor:[UIColor clearColor]];
-        [_cameraButton setImage:[[UIImage imageInBundleNamed:@"flip"] tintImageWithColor:self.tintColor] forState:UIControlStateNormal];
-        [_cameraButton setImage:[[UIImage imageInBundleNamed:@"flip"] tintImageWithColor:self.selectedTintColor] forState:UIControlStateSelected];
-        [_cameraButton addTarget:self action:@selector(changeCamera:) forControlEvents:UIControlEventTouchUpInside];
+    if ( !_cameraChangeButton ) {
+        _cameraChangeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_cameraChangeButton setBackgroundColor:[UIColor clearColor]];
+        [_cameraChangeButton setImage:[[UIImage imageInBundleNamed:@"flip"] tintImageWithColor:self.tintColor] forState:UIControlStateNormal];
+        [_cameraChangeButton setImage:[[UIImage imageInBundleNamed:@"flip"] tintImageWithColor:self.selectedTintColor] forState:UIControlStateSelected];
+        [_cameraChangeButton addTarget:self action:@selector(changeCamera:) forControlEvents:UIControlEventTouchUpInside];
     }
 
-    return _cameraButton;
+    return _cameraChangeButton;
 }
 
 - (UIButton *) flashButton
@@ -496,7 +496,7 @@
     self.gridButton.transform = trans;
     self.closeButton.transform = trans;
     self.flashButton.transform = trans;
-    self.cameraButton.transform = trans;
+    self.cameraChangeButton.transform = trans;
     self.triggerButton.transform = trans;
     self.photoLibraryButton.transform = trans;
 }

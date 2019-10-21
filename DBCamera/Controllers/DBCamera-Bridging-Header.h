@@ -5,7 +5,6 @@
 #import <UIKit/UIKit.h>
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
-#import "DBCameraLibraryViewController.h"
 #import "DBCameraGridView.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 

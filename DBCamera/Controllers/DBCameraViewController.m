@@ -11,9 +11,7 @@
 #import "DBCameraView.h"
 #import "DBCameraGridView.h"
 #import "DBCameraDelegate.h"
-#import "DBCameraSegueViewController.h"
-#import "DBCameraLibraryViewController.h"
-#import "DBLibraryManager.h"
+
 #import "DBMotionManager.h"
 #import "DBCameraConfiguration.h"
 
@@ -119,8 +117,8 @@
     id camera =_customCamera ?: _cameraView;
     [camera insertSubview:self.cameraGridView atIndex:1];
     
-    if ( [camera respondsToSelector:@selector(cameraButton)] ) {
-        [(DBCameraView *)camera cameraButton].enabled = [self.cameraManager hasMultipleCameras];
+    if ( [camera respondsToSelector:@selector(cameraChangeButton)] ) {
+        [(DBCameraView *)camera cameraChangeButton].enabled = [self.cameraManager hasMultipleCameras];
         [self.cameraManager hasMultipleCameras];
     }
     
@@ -182,10 +180,10 @@
 {
     if ( !self.cameraView.photoLibraryButton.isHidden && [self.parentViewController.class isSubclassOfClass:NSClassFromString(@"DBCameraContainerViewController")] ) {
         if ( [ALAssetsLibrary authorizationStatus] !=  ALAuthorizationStatusDenied ) {
-            __weak DBCameraView *weakCamera = self.cameraView;
-            [[DBLibraryManager sharedInstance] loadLastItemWithBlock:^(BOOL success, UIImage *image) {
-                [weakCamera.photoLibraryButton setBackgroundImage:image forState:UIControlStateNormal];
-            }];
+//            __weak DBCameraView *weakCamera = self.cameraView;
+//            [[DBLibraryManager sharedInstance] loadLastItemWithBlock:^(BOOL success, UIImage *image) {
+//                [weakCamera.photoLibraryButton setBackgroundImage:image forState:UIControlStateNormal];
+//            }];
         }
     } else
         [self.cameraView.photoLibraryButton setHidden:YES];
@@ -351,26 +349,6 @@
     if ( !self.useCameraSegue ) {
         if ( [_delegate respondsToSelector:@selector(camera:didFinishWithImage:withMetadata:)] )
             [_delegate camera:self didFinishWithImage:image withMetadata:finalMetadata];
-    } else {
-        CGFloat newW = 256.0;
-        CGFloat newH = 340.0;
-
-        if ( image.size.width > image.size.height ) {
-            newW = 340.0;
-            newH = ( newW * image.size.height ) / image.size.width;
-        }
-
-        DBCameraSegueViewController *segue = [[DBCameraSegueViewController alloc] initWithImage:image thumb:[UIImage returnImage:image withSize:(CGSize){ newW, newH }]];
-        [segue setTintColor:self.tintColor];
-        [segue setSelectedTintColor:self.selectedTintColor];
-        [segue setForceQuadCrop:_forceQuadCrop];
-        [segue enableGestures:YES];
-        [segue setDelegate:self.delegate];
-        [segue setCapturedImageMetadata:finalMetadata];
-        [segue setCameraConfiguration:self.cameraConfiguration];
-        [segue setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
-
-        [self.navigationController pushViewController:segue animated:YES];
     }
 }
 
@@ -395,21 +373,7 @@
 - (void) openLibrary
 {
     if ( [ALAssetsLibrary authorizationStatus] !=  ALAuthorizationStatusDenied ) {
-        [UIView animateWithDuration:.3 animations:^{
-            [self.view setAlpha:0];
-            [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
-        } completion:^(BOOL finished) {
-            DBCameraLibraryViewController *library = [[DBCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
-            [library setTintColor:self.tintColor];
-            [library setSelectedTintColor:self.selectedTintColor];
-            [library setForceQuadCrop:_forceQuadCrop];
-            [library setDelegate:self.delegate];
-            [library setUseCameraSegue:self.useCameraSegue];
-            [library setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
-            [library setLibraryMaxImageSize:self.libraryMaxImageSize];
-            [library setCameraConfiguration:self.cameraConfiguration];
-            [self.containerDelegate switchFromController:self toController:library];
-        }];
+        
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[[UIAlertView alloc] initWithTitle:DBCameraLocalizedStrings(@"general.error.title") message:DBCameraLocalizedStrings(@"pickerimage.nopolicy") delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];

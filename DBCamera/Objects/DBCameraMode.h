@@ -24,7 +24,8 @@ typedef NS_OPTIONS(NSUInteger, DBCameraAsptoSupportedMode) {
     DBCameraAsptoSupportedMode1x1 = 1 << 3,
     DBCameraAsptoSupportedModeCircle = 1 << 4,
 };
-typedef NS_ENUM(NSUInteger, DBCameraAsptoMode) { //默认以最大分辨率处理照片
+//默认以3x4处理照片跟系统相机保持一致
+typedef NS_ENUM(NSUInteger, DBCameraAsptoMode) {
     DBCameraAsptoModeFull,
     DBCameraAsptoMode9x16,
     DBCameraAsptoMode3x4,
