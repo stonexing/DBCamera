@@ -62,6 +62,15 @@
  */
 @property (nonatomic, strong) DBCameraConfiguration *cameraConfiguration;
 
+
+@property (nonatomic, assign)BOOL _processingPhoto;
+@property (nonatomic, assign)UIDeviceOrientation _deviceOrientation;
+@property (nonatomic, assign)BOOL wasStatusBarHidden;
+@property (nonatomic, assign)BOOL wasWantsFullScreenLayout;
+
+@property (nonatomic, assign)BOOL isSetConstraints;
+
+
 /**
  *  The init class method with a DBCameraViewControllerDelegate
  *

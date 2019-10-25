@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "DBCameraMode.h"
 
 @protocol DBCameraManagerDelegate;
 /**
@@ -54,6 +55,22 @@
  */
 @property (nonatomic, assign) AVCaptureWhiteBalanceMode whiteBalanceMode;
 
+/**
+ *纵横比例
+ */
+@property (nonatomic, assign) DBCameraAsptoMode asptoMode;
+/**
+ *保存格式
+ */
+@property (nonatomic, assign) DBCameraPhotoSavingType photoSvaingType;
+/**
+ *保存格式
+ */
+@property (nonatomic, assign) DBCameraVideoSavingType videoSvaingType;
+
+@property (nonatomic, assign) BOOL useLocationTag;
+
+@property (nonatomic, assign) BOOL autoSaving;
 /**
  *  The DBCamera camera orientation
  */

@@ -9,11 +9,16 @@
 import UIKit
 
 
-class DBRootViewController: UIViewController, DBCameraViewControllerSettings, DBCameraManagerDelegate, DBCameraControllerProtocol, DBCameraViewDelegate {
-    var initialCameraPosition: AVCaptureDevice.Position = .back
-    var tintColor: UIColor = .white
-    var selectedTintColor: UIColor = .cyan
-    var _deviceOrientation:UIDeviceOrientation = .portrait;
+class DBRootViewController: DBCameraViewController, DBCameraViewControllerDelegate, DBCameraContainerDelegate {
+    func back(fromController: Any!) {
+        
+    }
+    
+    func `switch`(fromController: Any!, toController controller: Any!) {
+        
+    }
+    
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,28 +46,6 @@ class DBRootViewController: UIViewController, DBCameraViewControllerSettings, DB
     }
 
     
-    lazy var cameraManager:DBCameraManager = {
-        let _cameraManager = DBCameraManager()
-        _cameraManager.delegate = self
-        return _cameraManager;
-    }()
-    lazy var cameraGridView:DBCameraGridView = {
-        let _cameraGridView = DBCameraGridView(frame: self.view.bounds)
-        _cameraGridView.numberOfRows = 2;
-        _cameraGridView.numberOfColumns = 2;
-        _cameraGridView.alpha = 0;
-        
-        return _cameraGridView;
-    }()
-    
-    lazy var cameraView:DBCameraView = {
-        let _cameraView = DBCameraView.initWith(self.cameraManager.captureSession)
-        
-        _cameraView?.tintColor = self.tintColor;
-        _cameraView?.selectedTintColor = self.selectedTintColor;
-        _cameraView?.defaultInterface();
-        _cameraView?.delegate = self;
-        
-        return _cameraView!;
-    }()
+   
+   
 }

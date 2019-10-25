@@ -8,14 +8,30 @@
 
 import UIKit
 
-class GSViewController: DBCameraContainerViewController, DBCameraViewControllerDelegate {
+class GSViewController: DBCameraViewController, DBCameraManagerDelegate {
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder);
+        self.selectedTintColor = .red
+        self.tintColor = .white
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.selectedTintColor = .red
+        self.tintColor = .white
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.delegate = self
+        
+        
         // Do any additional setup after loading the view.
         
+    }
+    
+    func captureImageDidFinish(_ image: UIImage!, withMetadata metadata: [AnyHashable : Any]!) {
+        print("拍照成功")
     }
     
 

@@ -29,12 +29,6 @@
 #endif
 
 @interface DBCameraViewController () <DBCameraManagerDelegate, DBCameraViewDelegate> {
-    BOOL _processingPhoto;
-    UIDeviceOrientation _deviceOrientation;
-    BOOL wasStatusBarHidden;
-    BOOL wasWantsFullScreenLayout;
-    
-    BOOL isSetConstraints;
 }
 
 @property (nonatomic, strong) id customCamera;
@@ -47,6 +41,13 @@
 @synthesize selectedTintColor = _selectedTintColor;
 @synthesize cameraSegueConfigureBlock = _cameraSegueConfigureBlock;
 @synthesize cameraManager = _cameraManager;
+
+@synthesize  _processingPhoto = __processingPhoto;
+@synthesize  _deviceOrientation = __deviceOrientation;
+@synthesize  wasStatusBarHidden = _wasStatusBarHidden;
+@synthesize  wasWantsFullScreenLayout = _wasWantsFullScreenLayout;
+
+@synthesize  isSetConstraints;
 
 #pragma mark - Life cycle
 
@@ -65,8 +66,8 @@
     self = [super init];
 
     if ( self ) {
-        _processingPhoto = NO;
-        _deviceOrientation = UIDeviceOrientationPortrait;
+        __processingPhoto = NO;
+        __deviceOrientation = UIDeviceOrientationPortrait;
         if ( delegate )
             _delegate = delegate;
 
@@ -105,12 +106,7 @@
             [self.view addSubview:self.customCamera];
         } else{
             [self.view addSubview:self.cameraView];
-            [self.cameraView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-            }];
+  
         }
     }
 
@@ -257,8 +253,8 @@
     if ( orientation != UIDeviceOrientationUnknown ||
          orientation != UIDeviceOrientationFaceUp ||
          orientation != UIDeviceOrientationFaceDown ) {
-        [self rotateViewsFrom:_deviceOrientation to:orientation];
-        _deviceOrientation = orientation;
+        [self rotateViewsFrom:__deviceOrientation to:orientation];
+        __deviceOrientation = orientation;
     }
 }
 
@@ -341,7 +337,7 @@
 
 - (void) captureImageDidFinish:(UIImage *)image withMetadata:(NSDictionary *)metadata
 {
-    _processingPhoto = NO;
+    __processingPhoto = NO;
 
     NSMutableDictionary *finalMetadata = [NSMutableDictionary dictionaryWithDictionary:metadata];
     finalMetadata[@"DBCameraSource"] = @"Camera";
@@ -385,10 +381,10 @@
 
 - (void) cameraViewStartRecording
 {
-    if ( _processingPhoto )
+    if ( __processingPhoto )
         return;
 
-    _processingPhoto = YES;
+    __processingPhoto = YES;
 
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_7_0) {
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -409,7 +405,7 @@
         }
     }
 
-    [self.cameraManager captureImageForDeviceOrientation:_deviceOrientation];
+    [self.cameraManager captureImageForDeviceOrientation:__deviceOrientation];
 }
 
 - (void) cameraView:(UIView *)camera focusAtPoint:(CGPoint)point

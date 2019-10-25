@@ -15,14 +15,7 @@ extension GSViewController {
         super.updateViewConstraints()
         
     
-        self.cameraViewController.view.mas_makeConstraints{ make in
-            make?.top.equalTo()(self.view.mas_top)
-            make?.bottom.equalTo()(self.view.mas_bottom)
-            make?.leading.equalTo()(self.view.mas_leading)
-            make?.trailing.equalTo()(self.view.mas_trailing)
-        }
-        self.cameraViewController.updateViewConstraints()
-        if let cameraView: DBCameraView = self.cameraViewController.cameraView
+        if let cameraView: DBCameraView = self.cameraView
         {
             cameraView.updateViewConstraints(self)
         }
